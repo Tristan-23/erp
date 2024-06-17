@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+  list-style: none;
+  font-family: "Maax-Regular";
+  text-decoration: none;
+  color: black;
+  cursor: auto;
+}
+
+$primary-white: #ffffff;
+$primary-blue: #00365e;
+$primary-pink: #dd0069;
+
+$background-light: #e5ebef;
+$background-med: #bfbfbf;
+$background-dark: #222222;
+
+$positive-color: #00b588;
+$negative-color: #b50000;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin img-center {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@font-face {
+  font-family: "Maax-Regular";
+  src: url(../fonts/maax-regular.woff2);
+}
+
+@font-face {
+  font-family: "Maax-Medium";
+  src: url(../fonts/maax-medium.woff2);
+}
+
+@font-face {
+  font-family: "Maax-Bold";
+  src: url(../fonts/maax-bold.woff2);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e90ff, #ff69b4);
+
+  .background {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0)
+    );
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+
+    nav {
+      width: 15%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      background-color: rgba($primary-white, 0.75);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      outline: 1px solid rgba(255, 255, 255, 0.5);
+
+      header {
+        width: 100%;
+        height: 10%;
+
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+        background-image: url(../images/gildeopleidingen.svg);
+        @include img-center();
+        background-size: 75%;
+      }
+
+      .menu {
+        position: relative;
+        width: 100%;
+        margin: 10% 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+
+        button {
+          position: absolute;
+          top: 40%;
+          right: 0;
+          width: 10%;
+          height: 10%;
+          border-radius: 100% 0 0 100%;
+
+          i {
+            font-size: 150%;
+            transition: 1s ease;
+          }
+        }
+
+        button:hover {
+          i {
+            transform: rotate(180deg);
+          }
+        }
+
+        a {
+          width: 80%;
+          height: 7.5%;
+          margin: 2.5% 0;
+          @include flex-center();
+          justify-content: flex-start;
+          gap: 5%;
+
+          background-color: transparent;
+          border-radius: 10px;
+
+          #icon {
+            width: 20%;
+            height: 100%;
+            border-radius: 10px 0 0 10px;
+            @include flex-center();
+
+            i {
+              font-size: 125%;
+              color: rgba(150, 150, 150, 1);
+            }
+          }
+
+          p {
+            font-size: 125%;
+            color: rgba(150, 150, 150, 1);
+          }
+        }
+
+        #logout {
+          margin-top: auto;
+        }
+
+        .active,
+        a:hover {
+          background-color: #00365e;
+          cursor: pointer;
+
+          #icon {
+            background-color: #00365e;
+            box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3);
+
+            i {
+              color: white;
+            }
+          }
+
+          p {
+            color: white;
+            cursor: pointer;
+          }
+        }
+      }
+
+      footer {
+        width: 100%;
+        height: 10%;
+        outline: auto;
+      }
+    }
+
+    aside {
+      flex-grow: 1;
+      max-height: 100vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 10% 20% 50% 50%;
+
+      .item {
+        @include flex-center();
+
+        section {
+          width: calc(100% - 25px);
+          height: calc(100% - 25px);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 10px;
+          background-color: rgba($primary-white, 0.75);
+          backdrop-filter: blur(10px);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          outline: 1px solid rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      .search {
+        grid-column: span 2;
+      }
+
+      .title {
+        section {
+          h1 {
+            width: 100%;
+            height: 100%;
+            @include flex-center();
+          }
+        }
+      }
+
+      .search {
+        section {
+          flex-direction: row-reverse;
+
+          .icons {
+            display: flex;
+            max-width: 50%;
+            height: 100%;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-shrink: 1;
+
+            i {
+              height: 100%;
+              width: 50px;
+              @include flex-center();
+            }
+          }
+
+          input {
+            flex-grow: 1;
+            min-width: 1%;
+            padding: 0 25px;
+            height: 50%;
+            background-color: transparent;
+          }
+
+          input:focus {
+            border-right: 1px solid black;
+          }
+        }
+      }
+
+      .profile {
+        section {
+          flex-direction: row;
+          justify-content: space-around;
+          #img {
+            height: 60%;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+
+            @include img-center();
+            background-image: url(../images/ace.png);
+            background-size: cover;
+          }
+
+          .text {
+            width: 60%;
+            height: 100%;
+
+            @include flex-center();
+            justify-content: space-between;
+          }
+        }
+      }
+
+      .card {
+        section {
+        }
+      }
+
+      .donut {
+        grid-column: span 2;
+        grid-row: span 2;
+
+        section {
+          header {
+            width: 90%;
+            height: 10%;
+            margin-top: 5%;
+            @include flex-center();
+            justify-content: space-between;
+
+            p {
+              width: 40%;
+              height: 100%;
+              font-family: "Maax-Bold";
+              @include flex-center();
+            }
+
+            p::after {
+              content: "︱uitgeklokt";
+            }
+
+            .clock_in::after {
+              content: "︱ingeklokt";
+            }
+
+            .start_break::after {
+              content: "︱pauze";
+            }
+
+            .stop_break::after {
+              content: "︱ingeklokt";
+            }
+
+            .clock_out::after {
+              content: "︱uitgeklokt";
+            }
+
+            div {
+              width: 30%;
+              height: 100%;
+              @include flex-center();
+
+              select {
+                margin-right: 10%;
+                width: 100%;
+                height: 50%;
+                padding: 0 5%;
+                border-radius: 5px;
+                @include flex-center();
+              }
+            }
+          }
+
+          article {
+            flex-grow: 1;
+            width: 100%;
+            @include flex-center();
+
+            canvas {
+              max-height: 80%;
+              aspect-ratio: 1;
+            }
+          }
+
+          footer {
+            width: 100%;
+            height: 15%;
+            @include flex-center();
+            justify-content: space-around;
+          }
+        }
+      }
+
+      .graphic {
+        grid-column: span 3;
+
+        section {
+          header {
+            width: 100%;
+            height: 15%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            * {
+              width: 25%;
+              height: 100%;
+              @include flex-center();
+
+              select {
+                width: 50%;
+                height: 50%;
+                border-radius: 5px;
+                background-color: $background-light;
+              }
+            }
+          }
+
+          article {
+            flex-grow: 1;
+            width: 100%;
+            @include flex-center();
+          }
+        }
+      }
+
+      .information {
+        grid-column: span 3;
+      }
+    }
+  }
+}

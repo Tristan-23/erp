@@ -52,4 +52,103 @@ $negative-color: #b50000;
 body {
   width: 100%;
   height: 100vh;
+  background: linear-gradient(135deg, #1e90ff, #ff69b4);
+
+  .background {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0)
+    );
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    @include flex-center();
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      height: 60%;
+      border-radius: 10px;
+      background-color: $primary-white;
+      opacity: 0.75;
+
+      header {
+        height: 20%;
+        @include img-center();
+        background-image: url(../images/gildeopleidingen.svg);
+        background-size: 50%;
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+        gap: 5%;
+        margin: 5% 0;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 80%;
+          height: 20%;
+
+          .text {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h1 {
+              font-size: 100%;
+            }
+          }
+
+          input {
+            flex-grow: 1;
+            margin-top: 2%;
+            background-color: $background-light;
+            padding: 0 2.5%;
+            border-radius: 10px;
+          }
+        }
+
+        .item:last-of-type {
+          margin-top: auto;
+
+          h1 {
+            font-size: 100%;
+            visibility: hidden;
+          }
+
+          input {
+            color: $background-light;
+            background-color: $background-dark;
+          }
+        }
+      }
+
+      footer {
+        height: 10%;
+        display: flex;
+        gap: 0.5em;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          text-decoration: underline;
+        }
+
+        a:hover {
+          cursor: pointer;
+          color: blue;
+        }
+      }
+    }
+  }
 }

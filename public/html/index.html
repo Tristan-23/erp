@@ -9,10 +9,46 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <title>Login</title>
-    <link rel="icon" href="../images/icon.png" type="image/png" />
   </head>
   <body>
-    Welcome
+    <div class="background">
+      <div class="container">
+        <header></header>
+        <section>
+          <div class="item">
+            <div class="text">
+              <h1>Email</h1>
+            </div>
+            <input id="email" type="email" />
+          </div>
+          <div class="item">
+            <div class="text">
+              <h1>Password</h1>
+            </div>
+            <input id="password" type="password" />
+          </div>
+          <div class="item" style="display: none">
+            <div class="text">
+              <h1>Repeat Password</h1>
+            </div>
+            <input id="r_password" type="password" />
+          </div>
+          <div class="item">
+            <h1>Gemaakt door Tristán</h1>
+            <input
+              id="submit"
+              type="button"
+              value="Inloggen"
+              onclick="handleSubmit()"
+            />
+          </div>
+        </section>
+        <footer>
+          <p id="change_text">Nog geen account?</p>
+          <a id="change_button" onclick="toggleCredentials()">Registreren</a>
+        </footer>
+      </div>
+    </div>
     <script src="js/cl_index.js"></script>
   </body>
 </html>

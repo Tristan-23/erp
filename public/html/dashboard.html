@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="background">
+      <nav>
+        <header></header>
+        <div class="menu">
+          <button><i class="fa-solid fa-chevron-right"></i></button>
+          <a href="/dashboard/" class="active">
+            <div id="icon">
+              <i class="fa-solid fa-gauge-simple-high"></i>
+            </div>
+            <p>Dashboard</p>
+          </a>
+          <a href="/opdrachten/">
+            <div id="icon"><i class="fa-solid fa-list-check"></i></div>
+            <p>Opdrachten</p>
+          </a>
+          <a href="/rapport/">
+            <div id="icon"><i class="fa-solid fa-chart-simple"></i></div>
+            <p>Rapport</p>
+          </a>
+          <a href="/medewerkers/">
+            <div id="icon"><i class="fa-solid fa-user-tie"></i></div>
+            <p>Medewerkers</p>
+          </a>
+          <a href="/klanten/">
+            <div id="icon"><i class="fa-solid fa-people-group"></i></div>
+            <p>Klanten</p>
+          </a>
+          <a href="/locaties/">
+            <div id="icon"><i class="fa-solid fa-location-dot"></i></div>
+            <p>Locaties</p>
+          </a>
+          <a href="/" id="logout">
+            <div id="icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+            <p>LOGOUT</p>
+          </a>
+        </div>
+      </nav>
+      <aside>
+        <div class="item title">
+          <section>
+            <h1>Dashboard</h1>
+          </section>
+        </div>
+        <div class="item space"></div>
+        <div class="item search">
+          <section>
+            <div class="icons">
+              <i class="fa-solid fa-filter"></i>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <input type="search" placeholder="Zoek over ons hele systeem ..." />
+          </section>
+        </div>
+        <div class="item profile">
+          <section>
+            <div id="img"></div>
+            <div class="text">
+              <p>J, Doe</p>
+              <i class="fa-solid fa-angle-down"></i>
+            </div>
+          </section>
+        </div>
+        <div class="item card" id="1">
+          <section></section>
+        </div>
+        <div class="item card" id="2">
+          <section></section>
+        </div>
+        <div class="item card" id="3">
+          <section></section>
+        </div>
+        <div class="item donut">
+          <section>
+            <header>
+              <p id="status">Uw status</p>
+              <div>
+                <select id="projectSelect">
+                  <option value="project_1">Project 1</option>
+                  <option value="project_2">Project 2</option>
+                  <option value="project_3">Project 3</option>
+                </select>
+              </div>
+            </header>
+            <article>
+              <div></div>
+              <canvas id="donut"></canvas>
+            </article>
+            <footer>
+              <button id="start" onclick="handleTime(this)">Inklokken</button>
+              <button disabled="true" id="break" onclick="handleTime(this)">
+                Pauze
+              </button>
+              <button disabled="true" id="end" onclick="handleTime(this)">
+                Uitklokken
+              </button>
+            </footer>
+          </section>
+        </div>
+        <div class="item graphic">
+          <section>
+            <header>
+              <h1>Information</h1>
+              <div>
+                <select>
+                  <option>week</option>
+                  <option>month</option>
+                  <option>year</option>
+                </select>
+              </div>
+            </header>
+            <article>Graphic here</article>
+          </section>
+        </div>
+        <div class="item space"></div>
+        <div class="item information">Our info</div>
+        <div class="item space"></div>
+      </aside>
+    </div>
+    <script src="js/cl_dashboard.js"></script>
+  </body>
+</html>
